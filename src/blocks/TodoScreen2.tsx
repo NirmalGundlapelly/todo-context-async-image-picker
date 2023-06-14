@@ -9,6 +9,7 @@ import {
   FlatList,
   TouchableWithoutFeedback,
   Keyboard,
+  Dimensions,
 } from 'react-native';
 import React, {Component} from 'react';
 import {TodoContext} from '../../context/TodoContext';
@@ -90,7 +91,7 @@ export default class TodoScreen1 extends Component<IProps, IState> {
             <TouchableOpacity onPress={handleAddTodo} style={styles.addButton}>
               <Text style={styles.nextButtonText}>------++ ADD ++------</Text>
             </TouchableOpacity>
-            <View style={{height: 600, }}>
+            <View style={{height: Dimensions.get('window').height/1.47 }}>
               {!todoList.length ? (
                 <View style={{flexDirection:'row', justifyContent:'center', alignItems:'center', height:400}}>
                 <Text
@@ -105,6 +106,7 @@ export default class TodoScreen1 extends Component<IProps, IState> {
                 </View>
               ) : (
                 <FlatList
+                showsVerticalScrollIndicator={false}
                   data={todoList}
                   renderItem={({item}) => this.renderTodoList(item)}
                   keyExtractor={item => item.id}

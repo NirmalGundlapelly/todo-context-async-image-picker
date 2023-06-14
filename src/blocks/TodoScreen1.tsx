@@ -121,7 +121,7 @@ export default class TodoScreen1 extends Component<IProps, IState> {
                 style={styles.addButton}>
                 <Text style={styles.nextButtonText}>------++ ADD ++------</Text>
               </TouchableOpacity>
-              <View style={{height: 600}}>
+              <View style={{height: Dimensions.get('window').height/1.47}}>
                 {!todoList.length ? (
                   <View
                     style={{
